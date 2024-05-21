@@ -1,5 +1,7 @@
 package caminas;
 
+import caminas.ui.UserForm;
+import caminas.ui.UserWindow;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -22,7 +24,9 @@ public class MainApplication {
                         .run(args);
 
         EventQueue.invokeLater(()->{
-            JOptionPane.showMessageDialog(null, "Funciona");
+            //obtenemos el objeto form a través de Spring
+            UserForm userWindow = context.getBean(UserForm.class);
+            userWindow.setVisible(true);
         });
     }
 }
